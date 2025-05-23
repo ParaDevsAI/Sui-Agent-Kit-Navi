@@ -251,26 +251,19 @@ async function handleGetAgentPortfolioTool(_args: GetAgentPortfolioToolArgs, _ex
     const agentSuiClient = naviSDKInstances.primaryAccount.client;
 
     try {
-        const portfolioMap = await getAddressPortfolio(agentAddress, false, agentSuiClient, false);
+        const portfolio = await getAddressPortfolio(agentAddress, false, agentSuiClient, true);
         const portfolioObject: Record<string, { borrowBalance: number, supplyBalance: number }> = {};
-        portfolioMap.forEach((value, key) => {
-            // getAddressPortfolio from Navi SDK returns human-readable numbers for balances
-            portfolioObject[key] = {
-                supplyBalance: value.supplyBalance,
-                borrowBalance: value.borrowBalance
-            };
+        portfolio.forEach((value, key) => {
+            portfolioObject[key] = value;
         });
-
+        
+        // getAddressPortfolio from Navi SDK returns human-readable numbers for balances when decimals=true
         return { 
-            content: [{ 
-                type: 'text', 
-                text: JSON.stringify(portfolioObject, null, 2),
-                mimeType: 'application/json',
-            } as TextContent] 
+            isError: false, 
+            content: [{ type: 'text', text: JSON.stringify(portfolioObject, null, 2) } as TextContent] 
         };
-    } catch (e: any) {
-        console.error(`Error fetching agent portfolio for ${agentAddress}:`, e);
-        return { isError: true, content: [{ type: 'text', text: e.message || 'Failed to fetch agent account portfolio.' } as TextContent] };
+    } catch (error) {
+        return { isError: true, content: [{ type: 'text', text: `Error getting agent portfolio: ${error}` } as TextContent] };
     }
 }
 
@@ -874,7 +867,7 @@ async function handleStakeSuiForVSui(args: StakeSuiToolArgs, _extra: McpRequestH
             await sleep(5000); // Wait 5 seconds for indexer to attempt to get updated portfolio
             let vsuiReceivedHuman = 0;
             try {
-                const portfolio = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, false);
+                const portfolio = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, true);
                 const vsuiSymbolMapped = mapAssetSymbolToCoinInfo('VSUI');
                 if (vsuiSymbolMapped) {
                     const vsuiKey = Object.keys(Object.fromEntries(portfolio)).find(k => k.toLowerCase() === vsuiSymbolMapped.symbol.toLowerCase());
@@ -920,7 +913,7 @@ async function handleUnstakeVSuiForSui(args: UnstakeVSuiToolArgs, _extra: McpReq
     let originalSuiBalanceHuman = 0;
 
     try {
-        const initialPortfolioForSui = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, false);
+        const initialPortfolioForSui = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, true);
         const suiKey = Object.keys(Object.fromEntries(initialPortfolioForSui)).find(k => k.toLowerCase() === 'sui');
         if (suiKey) {
             const portfolioEntry = initialPortfolioForSui.get(suiKey);
@@ -971,7 +964,7 @@ async function handleUnstakeVSuiForSui(args: UnstakeVSuiToolArgs, _extra: McpReq
             await sleep(5000); 
             let suiReceivedHuman = 0;
             try {
-                const finalPortfolio = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, false);
+                const finalPortfolio = await getAddressPortfolio(primaryAccount.address, false, primaryAccount.client, true);
                 const suiKey = Object.keys(Object.fromEntries(finalPortfolio)).find(k => k.toLowerCase() === 'sui');
                 if (suiKey) {
                     const portfolioEntry = finalPortfolio.get(suiKey);

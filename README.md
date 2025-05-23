@@ -70,8 +70,8 @@ The Sui Agent Kit empowers your applications and agents to:
 2.  **Sui Wallet:** You'll need a Sui wallet mnemonic or private key for the agent. This wallet will be used to sign transactions and interact with the Navi Protocol. Make sure it has SUI for gas fees and any assets you intend to use for testing (e.g., SUI for deposits).
 3.  **Clone the Repository:**
     ```bash
-    git clone <your_repository_url_here> # Replace with the actual URL to this Sui Agent Kit repo
-    cd SuiAgentKit # Or your chosen repository name
+    git clone https://github.com/ParaDevsAI/Sui-Agent-Kit/
+    cd Sui-Agent-Kit
     ```
 
 ### Setup & Configuration
@@ -159,5 +159,3 @@ We built the Sui Agent Kit to be a community asset! Contributions are welcome. W
 Let's build the future of decentralized finance on Sui, together!
 
 ---
-
-Good luck in the Sui Overflow 2025 Hackathon! We can't wait to see what you build with the Sui Agent Kit. 

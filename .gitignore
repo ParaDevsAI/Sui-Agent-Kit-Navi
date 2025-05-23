@@ -17,3 +17,5 @@ dist/
 .vscode/
 .idea/
 *.DS_Store 
+
+*.md
