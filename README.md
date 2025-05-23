@@ -76,15 +76,11 @@ The Sui Agent Kit empowers your applications and agents to:
 
 ### Setup & Configuration
 
-1.  **Navigate to the Server Directory:**
-    ```bash
-    cd navi-mcp-server
-    ```
-2.  **Install Dependencies:**
+1.  **Install Dependencies:**
     ```bash
     npm install
     ```
-3.  **Configure Environment Variables:**
+2.  **Configure Environment Variables:**
     Create a `.env` file in the `navi-mcp-server` directory. You can copy `../.env.example` (if you create one at the root) or create it from scratch:
     ```env
     # Sui RPC URL - Mainnet, Testnet, or Devnet
