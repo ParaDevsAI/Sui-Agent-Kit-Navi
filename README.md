@@ -223,4 +223,16 @@ We built the Sui Agent Kit to be a community asset! Contributions are welcome. W
 
 Let's build the future of decentralized finance on Sui, together!
 
----
+<div align="center">
+
+## 💝 Support Us
+
+Support our work by using **ParaSui** liquid staking on SUI: [springsui.com/SUI-ParaSui](https://springsui.com/SUI-ParaSui)
+
+**Built with ❤️ for the Sui Overflow 2025 Hackathon**
+
+*Let's build the future of decentralized finance on Sui, together!*
+
+**🌊 [Navi Kit Repository](https://github.com/ParaDevsAI/Sui-Agent-Kit-Navi) | 🏦 [SuiLend+SuiSpring Kit Repository](https://github.com/ParaDevsAI/Sui-Agent-Kit-SuiLend-SuiSpring)**
+
+</div>
