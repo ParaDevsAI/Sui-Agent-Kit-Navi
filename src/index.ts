@@ -11,7 +11,7 @@ console.error("MCP Stdio Mode: console.log and console.warn have been redirected
 
 import { SUI_RPC_URL, NAVI_AGENT_MNEMONIC, NAVI_AGENT_PRIVATE_KEY } from './config';
 import { getNaviSDKInstances } from './core_navi/navi_client'; // I let this here but i ll clean soon just for testing
-import { mcpServer } from './mcp_server/server'; 
+import { mcpServer, initializeNaviConnection } from './mcp_server/server'; 
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 
 console.error('Starting Navi MCP Server...');
@@ -31,6 +31,7 @@ async function main() {
     console.error('[SERVER_INDEX] Main function started.');
     try {
         console.error('[SERVER_INDEX] Attempting to initialize Navi SDK connection...');
+        await initializeNaviConnection(); 
         console.error('[SERVER_INDEX] Navi SDK connection phase completed successfully.');
 
         console.error('[SERVER_INDEX] Creating StdioServerTransport...');
