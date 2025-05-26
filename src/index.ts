@@ -31,7 +31,6 @@ async function main() {
     console.error('[SERVER_INDEX] Main function started.');
     try {
         console.error('[SERVER_INDEX] Attempting to initialize Navi SDK connection...');
-        await initializeNaviConnection(); 
         console.error('[SERVER_INDEX] Navi SDK connection phase completed successfully.');
 
         console.error('[SERVER_INDEX] Creating StdioServerTransport...');
