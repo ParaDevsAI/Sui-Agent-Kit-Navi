@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/paradevsai-sui-agent-kit-navi-badge.png)](https://mseep.ai/app/paradevsai-sui-agent-kit-navi)
+
 # Sui Agent Kit 🤖🌊 - Your Gateway to Automated DeFi on Navi Protocol
 
 [![Sui Overflow 2025 Submission - Infrastructure & Tooling Track](https://img.shields.io/badge/Sui_Overflow_2025-Infra_&_Tooling-blue?style=for-the-badge)](https://overflowportal.sui.io/)
